@@ -149,6 +149,8 @@ Zoom Mtg ID: 844 2142 8383
 Zoom Password: 498167
 ```
 
+*Note: The date format is DD-MMM-YY. The example above uses 24-Oct-25 for demonstration purposes.*
+
 ## Debugging
 
 ### Enable Console Logging

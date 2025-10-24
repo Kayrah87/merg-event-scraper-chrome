@@ -116,8 +116,13 @@ function generateICS(event) {
   const summary = escapeICSText(event.title);
   const location = escapeICSText(event.venue || 'Online Zoom Meeting');
   
-  // Generate unique ID
-  const uid = `${formatICSDate(startDate)}-${Math.random().toString(36).substring(7)}@merg.org.uk`;
+  // Generate unique ID using event data and timestamp
+  // This creates a deterministic but unique ID based on event details
+  const hashBase = `${formatICSDate(startDate)}-${event.title}-${event.zoomId || ''}-${Date.now()}`;
+  const simpleHash = hashBase.split('').reduce((acc, char) => {
+    return ((acc << 5) - acc) + char.charCodeAt(0);
+  }, 0);
+  const uid = `${formatICSDate(startDate)}-${Math.abs(simpleHash).toString(36)}@merg.org.uk`;
   
   // Build ICS content
   const icsLines = [
