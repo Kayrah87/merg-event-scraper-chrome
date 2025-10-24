@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MERG Event Scraper</title>
+  <style>
+    body {
+      width: 400px;
+      padding: 15px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    
+    h1 {
+      font-size: 18px;
+      margin: 0 0 15px 0;
+      color: #333;
+      text-align: center;
+    }
+    
+    .container {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      transition: background 0.3s;
+    }
+    
+    button:hover {
+      background: #0052a3;
+    }
+    
+    button:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+    }
+    
+    #status {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 13px;
+      text-align: center;
+    }
+    
+    .status-info {
+      background: #e3f2fd;
+      color: #1976d2;
+      border: 1px solid #bbdefb;
+    }
+    
+    .status-success {
+      background: #e8f5e9;
+      color: #388e3c;
+      border: 1px solid #c8e6c9;
+    }
+    
+    .status-error {
+      background: #ffebee;
+      color: #d32f2f;
+      border: 1px solid #ffcdd2;
+    }
+    
+    .status-warning {
+      background: #fff3e0;
+      color: #f57c00;
+      border: 1px solid #ffe0b2;
+    }
+    
+    #eventList {
+      margin-top: 15px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    
+    .event-item {
+      background: #f9f9f9;
+      padding: 10px;
+      margin-bottom: 8px;
+      border-radius: 5px;
+      border-left: 4px solid #0066cc;
+      font-size: 12px;
+    }
+    
+    .event-title {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 4px;
+    }
+    
+    .event-details {
+      color: #666;
+      font-size: 11px;
+    }
+    
+    .event-actions {
+      margin-top: 8px;
+    }
+    
+    .event-actions button {
+      padding: 6px 12px;
+      font-size: 11px;
+      width: auto;
+      margin-bottom: 0;
+    }
+    
+    .info-text {
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎫 MERG Event Scraper</h1>
+    
+    <div class="info-text">
+      Navigate to the MERG "My Upcoming Events" page and click the button below to scrape events.
+    </div>
+    
+    <button id="scrapeBtn">Scrape Events</button>
+    <button id="downloadAllBtn" style="display:none;">Download All Events</button>
+    
+    <div id="status"></div>
+    <div id="eventList"></div>
+  </div>
+  
+  <script src="ics-generator.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
